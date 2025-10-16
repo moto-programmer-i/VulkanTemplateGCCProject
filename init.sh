@@ -1,6 +1,6 @@
 #!/bin/sh -ex
 # 出力フォルダをカレントに
-cd ../../out
+cd out
 
 # vulkan環境設定 https://vulkan.lunarg.com/doc/sdk/latest/linux/getting_started.html
 # source /run/media/user/linux-data/vulkan/1.4.321.1/setup-env.sh
@@ -13,7 +13,8 @@ cd ../../out
 #  sudo mkdir -p /usr/local/share/vulkan/explicit_layer.d
 #  sudo cp $VULKAN_SDK/share/vulkan/explicit_layer.d/VkLayer_*.json /usr/local/share/vulkan/explicit_layer.d
 
-
+#stdモジュール作成（最初に１回だけやれば良い）
+g++ -std=c++23 -fmodules -fsearch-include-path -c bits/std.cc
 
 # vulkan.cppmビルド
 source /run/media/user/linux-data/vulkan/1.4.321.1/setup-env.sh
